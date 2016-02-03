@@ -12,23 +12,23 @@ function DnD(canvas, interactor) {
 	
 	// Developper les 3 fonctions gérant les événements
 
-	this.mousedown = function(){
+	this.appui = function(){
 		
 	}.bind(this);
 	
-	this.mousemove = function(){
+	this.deplacement = function(){
 		
 	}.bind(this);
 	
-	this.mouseup = function(){
+	this.relache = function(){
 		
 	}.bind(this);
 	
 	// Associer les fonctions précédentes aux évènements du canvas.
 	
-	canvas.addEventListener('mousedown', this.maFctGérantLaPression, false);
-	canvas.addEventListener('mousemove', this.maFctGérantLeDéplacement, false);
-	canvas.addEventListener('mouseup', this.maFctGérantLeRelâchement, false);
+	canvas.addEventListener('mousedown', this.appui, false);
+	canvas.addEventListener('mousemove', this.deplacement, false);
+	canvas.addEventListener('mouseup', this.relache, false);
 	
 };
 
