@@ -10,28 +10,39 @@ function DnD(canvas, interactor) {
 	this.xfinal = 0;
 	this.yfinal = 0;
 	this.currentMouse;
+	this.mouseClicked = false;
 	// Developper les 3 fonctions gérant les événements
 
 	this.appui = function(evt){
-		this.currentMouse = getMousePosition(canvas, evt);
-		this.xinit = this.currentMouse.x;
-		this.yinit = this.currentMouse.y;
-		console.log(this.xinit);
-		console.log(this.yinit);
-		
-	}.bind(this);
-	
-	this.relache = function(evt){
-		this.currentMouse = getMousePosition(canvas, evt);
-		this.xfinal = this.currentMouse.x;
-		this.yfinal = this.currentMouse.y;
-		console.log(this.xfinal);
-		console.log(this.yfinal);
+		mouseClicked = true;
+		currentMouse = getMousePosition(canvas, evt);
+		xinit = currentMouse.x;
+		yinit = currentMouse.y;
+		console.log(xinit);
+		console.log(yinit);
 	}.bind(this);
 	
 	this.deplacement = function(evt){
-		
+		if(mouseClicked){
+			currentMouse = getMousePosition(canvas, evt);
+			console.log(currentMouse.x);
+			console.log(currentMouse.y);
+		}
+		else{
+			console.log("mouse unclicked");
+		}
+	}.bind(this);	
+	
+	this.relache = function(evt){
+		mouseClicked=false;
+		currentMouse = getMousePosition(canvas, evt);
+		xfinal = currentMouse.x;
+		yfinal = currentMouse.y;
+		console.log(xfinal);
+		console.log(yfinal);
 	}.bind(this);
+	
+
 	
 
 	
